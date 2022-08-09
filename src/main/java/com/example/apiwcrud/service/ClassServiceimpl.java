@@ -1,39 +1,38 @@
 package com.example.apiwcrud.service;
 
-import com.example.apiwcrud.model.User;
-import com.example.apiwcrud.repository.UserRepository;
+import com.example.apiwcrud.model.Class;
+import com.example.apiwcrud.repository.ClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserServiceimpl implements UserService {
+public class ClassServiceimpl implements ClassService {
     @Autowired
 
-    UserRepository userRepository;
+    ClassRepository classRepository;
 
     @Override
-    public void saveUser(User user) {
-        userRepository.save(user);
+    public void saveClass(Class c) {classRepository.save(c);
     }
 
     @Override
-    public void deleteUser(Integer id) {
-        userRepository.deleteById(id);
+    public void deleteClass(Integer id) {
+        classRepository.deleteById(id);
     }
 
     @Override
-    public User findById(Integer id) {
-        return userRepository.findById(id).get();
+    public Class findById(Integer id) {
+        return classRepository.findById(id).get();
     }
 
     @Override
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<Class> findAll() {
+        return classRepository.findAll();
     }
 
-    public List<User> findAllByName(String name){
-        return userRepository.findAllByName(name);
+    public List<Class> findAllByName(String name){
+        return classRepository.findAllByName(name);
     }
 }

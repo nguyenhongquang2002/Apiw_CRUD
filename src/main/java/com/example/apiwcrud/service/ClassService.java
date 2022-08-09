@@ -1,13 +1,13 @@
 package com.example.apiwcrud.service;
 
-import com.example.apiwcrud.model.User;
+import com.example.apiwcrud.model.Class;
 
 import java.util.List;
 
-public interface UserService {
-    public void saveUser(User user);
-    public void deleteUser(Integer id);
-    public User findById(Integer id);
-    public List<User> findAll();
-    public List<User> findAllByName(String name);
+public interface ClassService {
+    public void saveClass(Class c);
+    public void deleteClass(Integer id);
+    public Class findById(Integer id);
+    public List<Class> findAll();
+    public List<Class> findAllByName(String name);
 }
