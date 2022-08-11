@@ -1,6 +1,10 @@
 package com.example.apiwcrud.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -12,11 +16,17 @@ public class User {
     private int id;
     @Basic
     @Column(name = "name")
+    @NotNull
+    @Size(min = 2 ,message = "ten khong hop le")
     private String name;
     @Basic
+    @Email
+    @Size(min = 0,message = "email chua dung")
     @Column(name = "email")
     private String email;
     @Basic
+    @NotEmpty
+    @Size(max = 10,message = "so dien thoai khong qua dai va qua ngan")
     @Column(name = "phone")
     private String phone;
 

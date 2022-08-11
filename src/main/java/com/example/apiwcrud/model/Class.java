@@ -1,6 +1,9 @@
 package com.example.apiwcrud.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -12,8 +15,12 @@ public class Class {
     private int id;
     @Basic
     @Column(name = "name")
+    @NotNull
+    @Size(min = 5,message = "Điền đúng tên vào")
     private String name;
     @Basic
+    @NotNull
+    @Size(min = 5,message = "Điền đúng tên lớp vào")
     @Column(name = "room")
     private String room;
     @Basic

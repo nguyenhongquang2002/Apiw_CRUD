@@ -12,11 +12,12 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/class")
 public class ClassController {
     @Autowired
     ClassService classService;
 
-    @RequestMapping(value ="class",method = RequestMethod.GET)
+    @RequestMapping(value ="list",method = RequestMethod.GET)
     public ResponseEntity<List<Class>> findAllClass(){
         List<Class> lsClass = classService.findAll();
         if(lsClass.size()==0){
@@ -40,13 +41,13 @@ public class ClassController {
 
 
 
-    @RequestMapping(value ="createclass",method = RequestMethod.POST)
+    @RequestMapping(value ="create",method = RequestMethod.POST)
     public ResponseEntity<Class> saveNewClass(@RequestBody Class c ){
         classService.saveClass(c);
         return new ResponseEntity<Class>(c,HttpStatus.OK);
     }
 //    http://localhost:8080/updateUser
-    @RequestMapping(value ="updateClass",method = RequestMethod.PUT)
+    @RequestMapping(value ="update",method = RequestMethod.PUT)
     public ResponseEntity<Class> saveNewClass(
         @Param("id") Integer id,
         @RequestBody Class c ){
@@ -69,7 +70,7 @@ public class ClassController {
 //        return new ResponseEntity<User>(oldUser,HttpStatus.OK);
 //    }
 
-    @RequestMapping(value ="deleteClass/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(value ="delete/{id}",method = RequestMethod.DELETE)
     public ResponseEntity<Class> deleteClass(@PathVariable(value = "id") Integer id){
         classService.deleteClass(id);
         return ResponseEntity.ok().build();

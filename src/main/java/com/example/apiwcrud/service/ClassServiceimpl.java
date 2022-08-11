@@ -14,7 +14,8 @@ public class ClassServiceimpl implements ClassService {
     ClassRepository classRepository;
 
     @Override
-    public void saveClass(Class c) {classRepository.save(c);
+    public void saveClass(Class c) {
+        classRepository.save(c);
     }
 
     @Override
